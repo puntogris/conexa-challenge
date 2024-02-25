@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.puntogris.conexachallenge.ui.search.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.puntogris.conexachallenge.ui.map.MapFragment"
+        android:label="Map"
+        tools:layout="@layout/fragment_map" >
+        <argument android:name="lat"
+            app:argType="string" />
+        <argument
+            android:name="lng"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.puntogris.conexachallenge.ui.users.UsersFragment"
+        android:label="Users"
+        tools:layout="@layout/fragment_users" >
+        <action
+            android:id="@+id/action_usersFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.puntogris.conexachallenge.ui.detail.PostDetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_post_detail" >
+        <argument
+            android:name="post"
+            app:argType="com.puntogris.conexachallenge.domain.Post" />
+    </fragment>
+</navigation>
